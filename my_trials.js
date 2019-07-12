@@ -8,32 +8,93 @@ let businessName = "Balloonicorn's Cupcake Shop";
 
 const addresses = ["123 Main Street", "683 Sutter Street", "1600 Pennsylvania Ave"];
 
-const phoneNumbers = new Map();
 
 // Add some phone numbers to our map
+const phoneNumbers = new Map([['home','510-867-5309'],
+                             ['mobile','415-555-1212'],
+                             ['business','415-123-4567']
 
-
+ ]);
 
 // ///////////////////////////////////////////////////////
 // Create User Info Display:
 
 // Add function to print account information 
+function printAccountInfo (name, number, business) {
+
+    const accountInfo =` Account Name: ${name}\n Account Number: ${number}\n Business Name: ${business}`;
+
+    return accountInfo;
+
+}
+
+console.log(printAccountInfo(accountHolder, accountNumber, businessName));
 
 
 // Add function to print all addresses, including a header
+function printAddresses (address){
+
+    for (const x of address){
+        console.log(". " + x)
+    }
+        
+
+}
+
+console.log (printAddresses(addresses));
 
 
 // Add function to print phone types and numbers
 
+function printPhoneNumber (phones){
+       console.log ("Phone numbers:");
+
+       for(const x of phones){
+        console.log (x);
+       }
+
+       //WHY DOESNT THIS WORK???? 
+       for(const x in phones){
+        console.log (x);
+       }
+
+
+        for(const x of Object.values(phones)){
+        console.log (x);
+       }
+
+
+        for(const [x, y] of Object.entries(phones)){
+        console.log (x, y);
+       }
+
+       
+
+       for (let [phone, number] of phoneNumbers) {
+        console.log(`${phone}: ${number}`);
+    }
+
+
+}
+
+printPhoneNumber(phoneNumbers);
 
 // ///////////////////////////////////////////////////////
 // Transactions:
 
 // Create an empty map of transactions
-
+const accountTransactions = new Map();
 
 // Add function to add transactions
+function addTransaction(date, number) {
 
+    accountTransactions.set(date, number);
+
+    console.log(accountTransactions)
+
+}
+
+addTransaction("May-2", -500);
 
 // Use the function to add transactions
 
