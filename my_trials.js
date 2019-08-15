@@ -48,23 +48,27 @@ console.log (printAddresses(addresses));
 
 function printPhoneNumber (phones){
        console.log ("Phone numbers:");
+       console.log(phones)
+       console.log(Object.values(phones))
+       console.log(Object.entries(phones))
 
-       for(const x of phones){
+
+       for(let x of phones){
         console.log (x);
        }
 
        //WHY DOESNT THIS WORK???? 
-       for(const x in phones){
+       for(let x in phones){
         console.log (x);
        }
 
 
-        for(const x of Object.values(phones)){
+        for(let x of Object.values(phones)){
         console.log (x);
        }
 
 
-        for(const [x, y] of Object.entries(phones)){
+        for(let [x, y] of Object.entries(phones)){
         console.log (x, y);
        }
 
@@ -90,11 +94,13 @@ function addTransaction(date, number) {
 
     accountTransactions.set(date, number);
 
-    console.log(accountTransactions)
-
 }
 
 addTransaction("May-2", -500);
+addTransaction("May-13", +1200);
+addTransaction("May-15", -100);
+addTransaction("May-21", -359);
+addTransaction("May-29", +2200);
 
 // Use the function to add transactions
 
